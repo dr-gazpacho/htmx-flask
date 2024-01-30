@@ -1,8 +1,12 @@
-from flask import Flask
+from flask import Flask, render_template
+from flask_htmx import HTMX
 
 app=Flask(__name__)
+htmx = HTMX(app)
 
 @app.route("/")
 
-def hello_world():
-    return "<p>Hello world!</p>"
+def hello(): 
+    message = "Hello, World!"
+    return render_template('index.html',  
+                           message=message) 
