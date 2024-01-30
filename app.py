@@ -10,6 +10,7 @@ def home():
         return render_template("partials/thing.html")
     return render_template("index.html")
 
-@app.route("/clicked")
+@app.route("/clicked", methods=["POST"])
 def clicked():
-    print('"clicked')
+    print('clicked')
+    return 'string'
