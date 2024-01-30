@@ -12,5 +12,8 @@ def home():
 
 @app.route("/clicked", methods=["POST"])
 def clicked():
-    print('clicked')
-    return 'string'
+    return '<div hx-swap="innerHTML" id="switch" hx-trigger="click" hx-post="/clickedOff" hx-target="#switch">the switchback</div>'
+
+@app.route("/clickedOff", methods=["POST"])
+def clickedOff():
+    return '<div id="beforeend" hx-swap="innerHTML" hx-trigger="click" hx-post="/clicked" hx-target="#switch">the switch</div>'
