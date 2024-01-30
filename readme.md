@@ -2,8 +2,8 @@
 Therefore, I'm trying to get better. Standing up a little toy app with HTMX/Flask because I don't know either
 
 ## Shoutout to the Legend
-https://github.com/edmondchuc/flask-htmx
-https://flask-htmx.readthedocs.io/en/latest 
+- https://github.com/edmondchuc/flask-htmx
+- https://flask-htmx.readthedocs.io/en/latest 
 
 ## Runnin'
 From the root of the project, spin up a virtual enviroment, activate it, and install some goodies
