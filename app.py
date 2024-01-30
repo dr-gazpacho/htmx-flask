@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from flask_htmx import HTMX
+from flask_htmx import HTMX, make_response
 
 app=Flask(__name__)
 htmx = HTMX(app)
@@ -17,3 +17,11 @@ def clicked():
 @app.route("/clickedOff", methods=["POST"])
 def clickedOff():
     return '<div id="beforeend" hx-swap="innerHTML" hx-trigger="click" hx-post="/clicked" hx-target="#switch">the switch</div>'
+
+@app.route("/clickedOut", methods=["POST"])
+def clickedOut():
+    return make_response(
+        'ope',
+        push_url=False,
+        trigger={"event1": "A message", "event2": "Another message"},
+    )
