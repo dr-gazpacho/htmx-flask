@@ -18,3 +18,5 @@ It'll serve the HTML with the local copy of HTMX. Live it. Breathe It. Rejoice.
 
 Power down the server and tear it down when you're done
 1. `deactivate`
+
+Rejoice
