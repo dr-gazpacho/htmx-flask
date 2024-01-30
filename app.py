@@ -5,8 +5,11 @@ app=Flask(__name__)
 htmx = HTMX(app)
 
 @app.route("/")
+def home(): 
+    if htmx:
+        return render_template("partials/thing.html")
+    return render_template("index.html")
 
-def hello(): 
-    message = "Hello, World!"
-    return render_template('index.html',  
-                           message=message) 
+@app.route("/clicked")
+def clicked():
+    print('"clicked')
