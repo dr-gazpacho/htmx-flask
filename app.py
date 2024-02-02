@@ -1,8 +1,12 @@
 from flask import Flask, render_template
 from flask_htmx import HTMX, make_response
-
+from flask_pymongo import PyMongo
+# initialize flask, htmx
 app=Flask(__name__)
 htmx = HTMX(app)
+# set up db connection
+app.config["MONGO_URI"] = "mongodb://localhost:27017/myDatabase"
+mongo = PyMongo(app)
 
 @app.route("/")
 def home(): 

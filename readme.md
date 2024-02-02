@@ -1,9 +1,20 @@
 ## I know nothing about the web
 Therefore, I'm trying to get better. Standing up a little toy app with HTMX/Flask because I don't know either
 
+## Prerecs
+- Python3
+- Pip
+- MongoDB
+-- https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
+
 ## Shoutout to the Legend
 - https://github.com/edmondchuc/flask-htmx
-- https://flask-htmx.readthedocs.io/en/latest 
+- https://flask-htmx.readthedocs.io/en/latest
+
+## Eat Your Vegetables
+- https://htmx.org/docs/
+- https://flask.palletsprojects.com/en/2.3.x/quickstart/
+- https://flask-pymongo.readthedocs.io/en/latest/
 
 ## Runnin'
 From the root of the project, spin up a virtual enviroment, activate it, and install some goodies
@@ -11,6 +22,7 @@ From the root of the project, spin up a virtual enviroment, activate it, and ins
 1. `. .venv/bin/activate`
 1. `pip install Flask`
 1. `pip install flask-htmx`
+1. `pip install Flask-PyMongo`
 
 Going to keep this to a real minimum of deps. Once you got all that installed and cookin, you can run the app this like:
 1. `flask run`
