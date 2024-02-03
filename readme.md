@@ -14,20 +14,37 @@ Therefore, I'm trying to get better. Standing up a little toy app with HTMX/Flas
 ## Eat Your Vegetables
 - https://htmx.org/docs/
 - https://flask.palletsprojects.com/en/2.3.x/quickstart/
-- https://flask-pymongo.readthedocs.io/en/latest/
+- https://flask.palletsprojects.com/en/2.3.x/patterns/mongoengine/
 
-## Runnin'
+## General Notes
+- Using this templating decorator to separate the html out of the main app
+-- https://flask.palletsprojects.com/en/2.3.x/patterns/viewdecorators/#templating-decorator
+
+## Get That Python Up & Runnin'
 From the root of the project, spin up a virtual enviroment, activate it, and install some goodies
 1. `python3 -m venv .venv`
 1. `. .venv/bin/activate`
-1. `pip install Flask`
 1. `pip install flask-htmx`
 1. `pip install Flask-PyMongo`
 
-Going to keep this to a real minimum of deps. Once you got all that installed and cookin, you can run the app this like:
+## Get That DB Up & runnin
+Get MongoDB installed on your machine, then you'll open a connection to it before you run the app. 
+The app will be set up to initialize with some shoddy mock data 
+- https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
+1. `brew services start mongodb-community@7.0`
+1. `brew services list` will show you running services
+1. `mongosh` will initialize a connection from the command line
+ - while running mongosh, you can use `show dbs` to see a list of all databases
+    - if you need to drop your dbs/collections because you're like me and kinda dumb
+    - `use dbName`
+    - drop a specific collection `db.COLLECTION_NAME.drop()`
+    - drop the whole mess `db.dropDatabase()`
+1. `brew services stop mongodb-community@7.0` will stop your MongoDB when you're done
+
+Going to keep this to a real minimum of deps. Once you got all that python and mongo installed, you can run the app this like:
 1. `flask run`
 
-It'll serve the HTML with the local copy of HTMX. Live it. Breathe It. Rejoice.
+It'll serve the HTML with the local copy of HTMX. And some mock data Live it. Breathe It. Rejoice.
 
 Power down the server and tear it down when you're done
 1. `deactivate`

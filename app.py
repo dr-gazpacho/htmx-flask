@@ -1,31 +1,29 @@
 from flask import Flask, render_template
 from flask_htmx import HTMX, make_response
+from template_decorator import templated
 from flask_pymongo import PyMongo
+
 # initialize flask, htmx
 app=Flask(__name__)
-htmx = HTMX(app)
-# set up db connection
-app.config["MONGO_URI"] = "mongodb://localhost:27017/myDatabase"
+htmx=HTMX(app)
+# set up database connection
+app.config["MONGO_URI"] = "mongodb://localhost:27017/htmx_flask"
 mongo = PyMongo(app)
 
 @app.route("/")
 def home(): 
+    mongo.db.temp_intventory.insert_one({"a": 1})
     if htmx:
         return render_template("partials/thing.html")
     return render_template("index.html")
 
-@app.route("/clicked", methods=["POST"])
-def clicked():
-    return '<div hx-swap="innerHTML" id="switch" hx-trigger="click" hx-post="/clickedOff" hx-target="#switch">the switchback</div>'
-
-@app.route("/clickedOff", methods=["POST"])
-def clickedOff():
-    return '<div id="beforeend" hx-swap="innerHTML" hx-trigger="click" hx-post="/clicked" hx-target="#switch">the switch</div>'
-
 @app.route("/clickedOut", methods=["POST"])
+@templated("./partials/test.html")
 def clickedOut():
-    return make_response(
-        'ope',
-        push_url=False,
-        trigger={"event1": "A message", "event2": "Another message"},
-    )
+    return dict(name="Arthur", king_of="The_Britons")
+
+# @app.route("/clickedOutTwo", methods=["POST"])
+# def clickedOutTwo():
+#     return render_template("./partials/test.html", name="Arthur", king_of="The_Britons")
+
+# app.run(debug=True)
