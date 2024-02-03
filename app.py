@@ -1,8 +1,9 @@
+# libraries
 from flask import Flask, render_template
 from flask_htmx import HTMX, make_response
-from template_decorator import templated
 from flask_pymongo import PyMongo
-
+# this project
+from utils.template_decorator import templated
 from utils.products import create_mock_data
 
 # initialize flask, htmx
