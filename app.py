@@ -3,21 +3,24 @@ from flask_htmx import HTMX, make_response
 from template_decorator import templated
 from flask_pymongo import PyMongo
 
+from mocks.products import create_mock_data
+
 # initialize flask, htmx
 app=Flask(__name__)
 htmx=HTMX(app)
 # set up database connection
 app.config["MONGO_URI"] = "mongodb://localhost:27017/htmx_flask"
 mongo = PyMongo(app)
+# create a few items in the db if its empty
+create_mock_data(mongo) 
 
 @app.route("/")
-def home(): 
-    mongo.db.temp_intventory.insert_one({"a": 1})
+def home():
     if htmx:
         return render_template("partials/thing.html")
     return render_template("index.html")
 
-@app.route("/clickedOut", methods=["POST"])
+@app.route("/clicked", methods=["POST"])
 @templated("./partials/test.html")
 def clickedOut():
     return dict(name="Arthur", king_of="The_Britons")
