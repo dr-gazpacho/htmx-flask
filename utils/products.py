@@ -10,7 +10,6 @@ class Item(TypedDict):
     description: str
     price: int
 
-
 strange_orb=Item(
     id=1,
     category=1,
@@ -45,16 +44,18 @@ initial_values=[strange_orb, mysterious_vapor, forgettable_corn]
 
 def create_mock_data(mongo: PyMongo):
     try:
-    # get all stuff from db
         contents=mongo.db.inventory.count_documents({})
         if not contents:
+            # if the inventory is totally empty, initialize with these three dummy items
             for item in initial_values:
                 mongo.db.inventory.insert_one(item)
         else:
+            # get all documents in inventory, and print them to console just so you can see what you have
             collection=mongo.db.inventory.find({})
             for doc in collection:
                 print(doc)
     except:
+        # semantic exception message, very helpful
         raise Exception('Some way, somehow, something is all jacked up with the connection to your database')
         
 # Here temporarily until I figure out how to initialize this database
@@ -76,4 +77,5 @@ def create_mock_data(mongo: PyMongo):
 
 # # maybe persist the idea of the cart as its own document in db
 # class Cart(me.Document):
+#     user=someone
 #     cartItem = me.EmbeddedDocumentListField(CartItem)
