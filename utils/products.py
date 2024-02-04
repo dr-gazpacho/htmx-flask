@@ -1,7 +1,7 @@
 from flask_pymongo import PyMongo
 from typing import TypedDict
 
-class Item(TypedDict):
+class Product(TypedDict):
     id: int
     category: int
     name: str
@@ -10,7 +10,7 @@ class Item(TypedDict):
     description: str
     price: int
 
-strange_orb=Item(
+strange_orb=Product(
     id=1,
     category=1,
     name='Strange Orb',
@@ -20,18 +20,48 @@ strange_orb=Item(
     price=15
 )
 
-mysterious_vapor=Item(
+beguiling_elixer=Product(
     id=2,
+    category=1,
+    name='Beguiling Elixer',
+    quantity_available=20,
+    color=['red', 'blue'],
+    description='It tastes really bad, otherwise it\'s positively potable',
+    price=195
+)
+
+mysterious_vapor=Product(
+    id=3,
     category=2,
     name='Mysterious Vapor',
     quantity_available=100,
     color=['pink', 'aqua', 'blue'],
     description='A mysterious vapor that seems to contain portals into worlds beyond',
+    price=23
+)
+
+questionable_evidence=Product(
+    id=4,
+    category=2,
+    name='Questionable Evidence',
+    quantity_available=32,
+    color=['white', 'grey'],
+    description='Certainly it could mean what we think it means, but does it? Origin, unknown.',
     price=10
 )
 
-forgettable_corn=Item(
-    id=3,
+generic_meat=Product(
+    id=5,
+    category=3,
+    name='Generic Meat',
+    quantity_available=5,
+    color=['grey'],
+    description='Meat from a meat producing entity',
+    price=1
+)
+
+forgettable_corn=Product(
+    id=6,
     category=3,
     name='Forgettable Corn',
     quantity_available=7,
@@ -40,15 +70,15 @@ forgettable_corn=Item(
     price=2
 )
 
-initial_values=[strange_orb, mysterious_vapor, forgettable_corn]
+initial_values=[strange_orb, beguiling_elixer, mysterious_vapor, questionable_evidence, generic_meat, forgettable_corn]
 
 def create_mock_data(mongo: PyMongo):
     try:
         contents=mongo.db.inventory.count_documents({})
         if not contents:
             # if the inventory is totally empty, initialize with these three dummy items
-            for item in initial_values:
-                mongo.db.inventory.insert_one(item)
+            for product in initial_values:
+                mongo.db.inventory.insert_one(product)
         else:
             # get all documents in inventory, and print them to console just so you can see what you have
             collection=mongo.db.inventory.find({})

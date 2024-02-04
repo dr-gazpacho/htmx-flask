@@ -1,13 +1,70 @@
-<div
+<section
     hx-swap="outerHtml"
     hx-trigger="click"
     hx-post="/clicked"
     hx-target="#shelf"
-
 >
-    {% for item in shelf %}
-    <p>
-        {{ item.name }}
-    </p>
-    {% endfor %}
-</div>
+    <section 
+        class="category-container"
+        style="display: flex;flex-wrap: nowrap; overflow-x: auto;"
+    >
+        {% for item in shelf_one %}
+            {% if item.category == 1 %}
+                <article
+                    style="border: 2px solid black;margin: 5px; display: inline-block;"
+                    class={{item.category}}
+                >
+                    <p>
+                        {{ item.name }}
+                    </p>
+                    <p>
+                        {{ item.description }}
+                    </p>
+                </article>
+            {% endif %}
+        {% endfor %}
+    </section>
+    <hr>
+    <section 
+        class="category-container"
+        style="display: flex;flex-wrap: nowrap; overflow-x: auto;"
+    >
+        {% for item in shelf_two %}
+            {% if item.category == 2 %}
+                <article
+                    style="border: 2px solid black;margin: 5px; display: inline-block;"
+                    class="{{item.category}}"
+                >
+                    <p>
+                        {{ item.name }}
+                    </p>
+                    <p>
+                        {{ item.description }}
+                    </p>
+                </article>
+            {% endif %}
+        {% endfor %}
+    </section>
+    <hr>
+    <section 
+        class="category-container"
+        style="display: flex;flex-wrap: nowrap; overflow-x: auto;"
+    >
+        {% for item in shelf_three %}
+            {% if item.category == 3 %}
+                <article
+                    style="border: 2px solid black;margin: 5px; display: inline-block;"
+                    class={{item.category}}
+                >
+                    <p>
+                        {{ item.name }}
+                    </p>
+                    <p>
+                        {{ item.description }}
+                    </p>
+                </article>
+            {% endif %}
+        {% endfor %}
+    </section>
+    <hr>
+</section>

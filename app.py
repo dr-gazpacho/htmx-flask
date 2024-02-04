@@ -11,7 +11,7 @@ app=Flask(__name__)
 htmx=HTMX(app)
 # set up database connection
 app.config["MONGO_URI"] = "mongodb://localhost:27017/htmx_flask"
-mongo = PyMongo(app)
+mongo=PyMongo(app)
 # create a few items in the db if its empty
 create_mock_data(mongo) 
 
@@ -22,8 +22,12 @@ def home():
 @app.route("/shelf", methods=["POST"])
 @templated("./partials/shelf.html")
 def getShelf():
-    shelf=mongo.db.inventory.find({})
-    return dict(shelf=shelf)
+    shelf_one=mongo.db.inventory.find({}).sort("category")
+    shelf_two=mongo.db.inventory.find({}).sort("category")
+    shelf_three=mongo.db.inventory.find({}).sort("category")
+    # I hate doing this shelf one/two thing
+
+    return dict(shelf_one=shelf_one, shelf_two=shelf_two, shelf_three=shelf_three)
 
 @app.route("/thing", methods=["POST"])
 @templated("./partials/thing.html")
