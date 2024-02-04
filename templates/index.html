@@ -8,14 +8,14 @@
     <p>{{message}}</p>
 <body>
     <div>
-        <div id="switch"></div>
+        <div id="shelf"></div>
         <button
-            hx-post="/clicked"
+            hx-post="/shelf"
             hx-trigger="click"
-            hx-swap="beforeend"
-            hx-target="#switch"
+            hx-swap="outerHtml"
+            hx-target="#shelf"
         >
-            Add
+            Get Shelf
         </button>
     </div>
     <script src="/static/htmx.min.js"></script>

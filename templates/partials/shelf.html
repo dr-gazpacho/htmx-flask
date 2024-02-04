@@ -1,0 +1,13 @@
+<div
+    hx-swap="outerHtml"
+    hx-trigger="click"
+    hx-post="/clicked"
+    hx-target="#shelf"
+
+>
+    {% for item in shelf %}
+    <p>
+        {{ item.name }}
+    </p>
+    {% endfor %}
+</div>

@@ -1,5 +1,5 @@
 # libraries
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_htmx import HTMX, make_response
 from flask_pymongo import PyMongo
 # this project
@@ -17,17 +17,18 @@ create_mock_data(mongo)
 
 @app.route("/")
 def home():
-    if htmx:
-        return render_template("partials/thing.html")
     return render_template("index.html")
 
-@app.route("/clicked", methods=["POST"])
-@templated("./partials/test.html")
-def clickedOut():
-    return dict(name="Arthur", king_of="The_Britons")
+@app.route("/shelf", methods=["POST"])
+@templated("./partials/shelf.html")
+def getShelf():
+    shelf=mongo.db.inventory.find({})
+    return dict(shelf=shelf)
 
-# @app.route("/clickedOutTwo", methods=["POST"])
-# def clickedOutTwo():
-#     return render_template("./partials/test.html", name="Arthur", king_of="The_Britons")
+# @app.route("/clicked", methods=["POST"])
+# @templated("./partials/test.html")
+# def clickedOut():
+#     print(request)
+#     return dict(name="Arthur", king_of="The_Britons")
 
 # app.run(debug=True)
