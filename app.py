@@ -25,6 +25,13 @@ def getShelf():
     shelf=mongo.db.inventory.find({})
     return dict(shelf=shelf)
 
+@app.route("/thing", methods=["POST"])
+@templated("./partials/thing.html")
+def makeNewThing():
+    name=request.form.get("thing-name")
+    description=request.form.get("thing-description")
+    return dict(name=name, description=description)
+
 # @app.route("/clicked", methods=["POST"])
 # @templated("./partials/test.html")
 # def clickedOut():

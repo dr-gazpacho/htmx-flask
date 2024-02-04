@@ -51,7 +51,12 @@ Going to keep this to a real minimum of deps. Once you got all that python and m
 
 It'll serve the HTML with the local copy of HTMX. And some mock data Live it. Breathe It. Rejoice.
 
-Power down the server and tear it down when you're done
+Power down the server and tear down your virtual environment when you're done
 1. `deactivate`
 
 Rejoice
+
+## But wait there's more
+Some to-do things I'd like to try to flesh this out
+- Active search so you can see what other weird shit exists 
+-- https://htmx.org/examples/active-search/
