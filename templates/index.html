@@ -9,7 +9,6 @@
 <body>
     <section id="shelf-container">
         <p>This section will just get all the results from the DB when you click the button</p>
-        <div id="shelf"></div>
         <button
             hx-post="/shelf"
             hx-trigger="click"
@@ -18,6 +17,7 @@
         >
             Get Shelf
         </button>
+        <section id="shelf"></section>
     </section>
     <hr>
     <section>
