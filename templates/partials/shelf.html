@@ -1,7 +1,4 @@
 <section
-    hx-swap="outerHtml"
-    hx-trigger="click"
-    hx-post="/clicked"
     hx-target="#shelf"
     style="width: 85%; margin: auto"
 >
@@ -89,7 +86,10 @@
                             </div>
                         {% endfor %}
                         </div>
-                        <button>
+                        <button
+                            hx-post="/addToCart"
+                            hx-paramlist="color, henry"
+                        >
                             Add to Cart
                         </button>
                         <p style="text-wrap:wrap; align-self: flex-end;">

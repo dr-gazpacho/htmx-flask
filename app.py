@@ -36,10 +36,14 @@ def makeNewThing():
     description=request.form.get("thing-description")
     return dict(name=name, description=description)
 
-# @app.route("/clicked", methods=["POST"])
-# @templated("./partials/test.html")
-# def clickedOut():
-#     print(request)
-#     return dict(name="Arthur", king_of="The_Britons")
+# still need to work on this
+    # I need to return SOMETHING to the FE, maybe just remove the clicked element from the DOM and add it to the 'cart'
+    # I think I need to make the color an input, have the button deactivated? then able to submit on color click?
+# @app.route("/addToCart", methods=["POST"])
+# def addToCart():
+#     color=request.args.get('color')
+#     item=request.args.get('henry')
+#     print(color, item)
+#     return '1'
 
 # app.run(debug=True)
