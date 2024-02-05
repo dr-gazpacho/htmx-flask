@@ -1,0 +1,62 @@
+/* Styles for color panel */
+.color-panel {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.red.square {
+    height: 20px;
+    width: 20px;
+    background-color: red;
+}
+.coral.square {
+    height: 20px;
+    width: 20px;
+    background-color: coral;
+}
+.gold.square {
+    height: 20px;
+    width: 20px;
+    background-color: gold;
+}
+.darkorchid.square {
+    height: 20px;
+    width: 20px;
+    background-color: darkorchid;
+}
+.midnightblue.square {
+    height: 20px;
+    width: 20px;
+    background-color: midnightblue;
+}
+.springgreen.square {
+    height: 20px;
+    width: 20px;
+    background-color: springgreen;
+}
+.royalblue.square {
+    height: 20px;
+    width: 20px;
+    background-color: royalblue;
+}
+/* end styles for color panel */
+
+/* start category and their container */
+.shelf {
+    width: 85%;
+    margin: auto
+}
+.category-container {
+    display:flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    align-content: baseline;
+    -webkit-overflow-scrolling: touch;
+}
+.category {
+    border: 2px solid black;
+    margin: 5px;
+    flex: 0 0 auto;
+    width: 160px;
+    height: 250px;
+}

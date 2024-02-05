@@ -4,6 +4,7 @@ from typing import TypedDict
 class Product(TypedDict):
     id: int
     category: int
+    category_class: str
     name: str
     quantity_available: int
     color: list[str]
@@ -13,8 +14,9 @@ class Product(TypedDict):
 strange_orb=Product(
     id=1,
     category=1,
+    category_class='trapped-entity',
     name='Strange Orb',
-    color=['red', 'blue'],
+    color=['midnightblue', 'royalblue'],
     description='A strange orb that seems to contain the screams of countless souls',
     price=15
 )
@@ -22,8 +24,9 @@ strange_orb=Product(
 beguiling_elixer=Product(
     id=2,
     category=1,
+    category_class='trapped-entity',
     name='Beguiling Elixer',
-    color=['red', 'blue'],
+    color=['midnightblue', 'royalblue'],
     description='It tastes really bad, otherwise it\'s positively potable',
     price=195
 )
@@ -31,8 +34,9 @@ beguiling_elixer=Product(
 mysterious_vapor=Product(
     id=3,
     category=2,
+    category_class='transient-horror',
     name='Mysterious Vapor',
-    color=['pink', 'aqua', 'blue'],
+    color=['red', 'coral', 'midnightblue'],
     description='A mysterious vapor that seems to contain portals into worlds beyond',
     price=23
 )
@@ -40,8 +44,9 @@ mysterious_vapor=Product(
 questionable_evidence=Product(
     id=4,
     category=2,
+    category_class='transient-horror',
     name='Questionable Evidence',
-    color=['white', 'grey'],
+    color=['darkorchid', 'springgreen'],
     description='Certainly it could mean what we think it means, but does it? Origin, unknown',
     price=10
 )
@@ -49,8 +54,9 @@ questionable_evidence=Product(
 generic_meat=Product(
     id=5,
     category=3,
+    category_class='food',
     name='Generic Meat',
-    color=['grey'],
+    color=['springgreen'],
     description='Meat from a meat producing entity',
     price=1
 )
@@ -58,8 +64,9 @@ generic_meat=Product(
 forgettable_corn=Product(
     id=6,
     category=3,
+    category_class='food',
     name='Forgettable Corn',
-    color=['yellow', 'jeweled', 'blue'],
+    color=['gold', 'darkorchid', 'midnightblue'],
     description='Corn, not unlike every single ear of corn you have ever seen; unremarkable',
     price=2
 )
@@ -67,8 +74,9 @@ forgettable_corn=Product(
 shrinking_gloves=Product(
     id=7,
     category=1,
+    category_class='trapped-entity',
     name='Shrinking Gloves',
-    color=['red', 'blue', 'neon'],
+    color=['coral', 'midnightblue', 'springgreen'],
     description='They\'re gonna scrunch right down and squish your little fingies',
     price=144
 )
@@ -76,8 +84,9 @@ shrinking_gloves=Product(
 heroic_broom=Product(
     id=8,
     category=1,
+    category_class='trapped-entity',
     name='Heroic Broom',
-    color=['gold', 'titanium'],
+    color=['springgreen', 'royalblue'],
     description='Dust trembles in fear.',
     price=2275
 )
@@ -85,8 +94,9 @@ heroic_broom=Product(
 opaque_opening=Product(
     id=9,
     category=2,
+    category_class='transient-horror',
     name='Opaque Opening',
-    color=['black'],
+    color=['springgreen'],
     description='What lies beyond? You see nothing but smell everything',
     price=765
 )
@@ -94,8 +104,9 @@ opaque_opening=Product(
 underlying_principle=Product(
     id=10,
     category=2,
+    category_class='transient-horror',
     name='Underlying Principle',
-    color=['raspberry'],
+    color=['coral'],
     description='The unquestionable heart-o-it-all',
     price=3599
 )
@@ -103,8 +114,9 @@ underlying_principle=Product(
 simply_fur=Product(
     id=11,
     category=3,
+    category_class='food',
     name='Simply Fur',
-    color=['grey'],
+    color=['red', 'gold'],
     description='Freshly juiced fur, some pulp',
     price=13
 )
@@ -112,8 +124,9 @@ simply_fur=Product(
 flamin_hot=Product(
     id=12,
     category=3,
+    category_class='food',
     name='Flamin\' Hot',
-    color=['red', 'orange', 'blue', 'white'],
+    color=['red', 'coral', 'gold', 'darkorchid', 'midnightblue', 'springgreen', 'royalblue'],
     description='Multi-purpose Flamin\' Hot with standard issue applicator tabs and swabs',
     price=849
 )
