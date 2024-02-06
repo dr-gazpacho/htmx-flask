@@ -21,13 +21,10 @@ def home():
 
 @app.route("/shelf", methods=["POST"])
 @templated("./partials/shelf.html")
-def getShelf():
-    shelf_one=mongo.db.inventory.find({}).sort("category")
-    shelf_two=mongo.db.inventory.find({}).sort("category")
-    shelf_three=mongo.db.inventory.find({}).sort("category")
-    # I hate doing this shelf one/two thing
-
-    return dict(shelf_one=shelf_one, shelf_two=shelf_two, shelf_three=shelf_three)
+def shelf():
+    method=request.form.get('method')
+    shelf=mongo.db.inventory.find({}).sort(method)
+    return dict(shelf=shelf)
 
 @app.route("/thing", methods=["POST"])
 @templated("./partials/thing.html")
