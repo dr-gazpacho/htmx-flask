@@ -3,8 +3,17 @@
     class="shelf"
 >
     <section class="shelf-controls">
-        <button>Sort?</button>
-        <button>Filter?</button>
+        <button
+            hx-post="/shelf"
+            hx-trigger="click"
+            hx-swap="outerHtml"
+            hx-target="#shelf"
+            type="submit"
+            name="method"
+            value="price"
+        >
+            Sort by Price
+        </button>
     </section>
     <section 
         class="category-container"
