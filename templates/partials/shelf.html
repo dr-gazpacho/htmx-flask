@@ -2,11 +2,14 @@
     hx-target="#shelf"
     class="shelf"
 >
+    <section class="shelf-controls">
+        <button>Sort?</button>
+        <button>Filter?</button>
+    </section>
     <section 
         class="category-container"
     >
-        {% for item in shelf_one %}
-            {% if item.category == 1 %}
+        {% for item in shelf %}
                 <article
                     class="category {{item.category_class}}"
                 >
@@ -28,70 +31,6 @@
                         </p>
                     <section>
                 </article>
-            {% endif %}
-        {% endfor %}
-    </section>
-    <hr>
-    <section 
-        class="category-container"
-    >
-        {% for item in shelf_two %}
-            {% if item.category == 2 %}
-                <article
-                    class="category {{item.category_class}}"
-                >
-                    <p>
-                        {{ item.name }}
-                    </p>
-                    <section style="display: flex; flex-direction: column;">
-                        <div class="color-panel">
-                        {% for color in item.color %}
-                            <div class="{{color}} square"> 
-                            </div>
-                        {% endfor %}
-                        </div>
-                        <button>
-                            Add to Cart
-                        </button>
-                        <p style="text-wrap:wrap; align-self: flex-end;">
-                            {{ item.description }}
-                        </p>
-                    <section>
-                </article>
-            {% endif %}
-        {% endfor %}
-    </section>
-    <hr>
-    <section 
-        class="category-container"
-    >
-        {% for item in shelf_three %}
-            {% if item.category == 3 %}
-                <article
-                    class="category {{item.category_class}}"
-                >
-                    <p>
-                        {{ item.name }}
-                    </p>
-                    <section style="display: flex; flex-direction: column;">
-                        <div class="color-panel">
-                        {% for color in item.color %}
-                            <div class="{{color}} square"> 
-                            </div>
-                        {% endfor %}
-                        </div>
-                        <button
-                            hx-post="/addToCart"
-                            hx-paramlist="color, henry"
-                        >
-                            Add to Cart
-                        </button>
-                        <p style="text-wrap:wrap; align-self: flex-end;">
-                            {{ item.description }}
-                        </p>
-                    <section>
-                </article>
-            {% endif %}
         {% endfor %}
     </section>
     <hr>
