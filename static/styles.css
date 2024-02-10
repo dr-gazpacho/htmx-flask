@@ -42,7 +42,7 @@
 /* end styles for color panel */
 
 /* start category and their container */
-.shelf {
+.shelf .cart {
     width: 85%;
     margin: auto
 }

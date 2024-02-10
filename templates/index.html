@@ -9,8 +9,9 @@
     <p>{{message}}</p>
 <body>
     <section id="shelf-container">
-        <p>This section will just get all the results from the DB when you click the button</p>
-        <button
+        <h2
+            hx-get="/shelf"
+            hx-trigger="load"
             hx-post="/shelf"
             hx-trigger="click"
             hx-swap="outerHtml"
@@ -19,9 +20,14 @@
             name="method"
             value="category"
         >
-            Get Shelf
-        </button>
+            This heading has a get method attached, it will trigger a GET to /shelf on page load
+    </h2>
         <section id="shelf"></section>
+        <hr>
+        <h2>Cart</h2>
+        <section id="cart" class="category-container">
+
+        </section>
     </section>
     <hr>
     <section>

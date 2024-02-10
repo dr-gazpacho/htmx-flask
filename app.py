@@ -19,12 +19,21 @@ create_mock_data(mongo)
 def home():
     return render_template("index.html")
 
-@app.route("/shelf", methods=["POST"])
+@app.route("/shelf", methods=["GET", "POST"])
 @templated("./partials/shelf.html")
 def shelf():
-    method=request.form.get('method')
-    shelf=mongo.db.inventory.find({}).sort(method)
+    shelf=mongo.db.inventory.find({})
+    if request.method == 'POST':
+        method=request.form.get('method')
+        shelf=mongo.db.inventory.find({}).sort(method)
     return dict(shelf=shelf)
+
+@app.route("/add", methods=["POST"])
+@templated("./partials/cart.html")
+def cart():
+    name=request.form.get("product")
+    item=mongo.db.inventory.find_one({'name': name})
+    return dict(item=item)
 
 @app.route("/thing", methods=["POST"])
 @templated("./partials/thing.html")
