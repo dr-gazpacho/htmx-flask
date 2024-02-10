@@ -7,9 +7,6 @@ Therefore, I'm trying to get better. Standing up a little toy app with HTMX/Flas
 - MongoDB
 -- https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
 
-## Shoutout to the Legend
-- https://github.com/edmondchuc/flask-htmx
-- https://flask-htmx.readthedocs.io/en/latest
 
 ## Eat Your Vegetables
 - https://htmx.org/docs/
@@ -25,7 +22,6 @@ Therefore, I'm trying to get better. Standing up a little toy app with HTMX/Flas
 From the root of the project, spin up a virtual enviroment, activate it, and install some goodies
 1. `python3 -m venv .venv`
 1. `. .venv/bin/activate`
-1. `pip install flask-htmx`
 1. `pip install Flask-PyMongo`
 
 ## Get That DB Up & runnin

@@ -5,7 +5,6 @@
     <section class="shelf-controls">
         <button
             hx-post="/shelf"
-            hx-trigger="click"
             hx-swap="outerHtml"
             hx-target="#shelf"
             type="submit"
@@ -14,9 +13,20 @@
         >
             Sort by Price
         </button>
+        <button
+            hx-post="/shelf"
+            hx-swap="outerHtml"
+            hx-target="#shelf"
+            type="submit"
+            name="method"
+            value="category"
+        >
+            Sort by Category
+        </button>
+        <p>To do: implement a keyword filter based on active search - https://htmx.org/examples/active-search/</p>
     </section>
     <section 
-        class="category-container"
+        class="category-container shelf"
     >
         {% for item in shelf %}
                 <article
@@ -32,7 +42,14 @@
                             </div>
                         {% endfor %}
                         </div>
-                        <button>
+                        <button
+                            hx-post="/add"
+                            hx-target="#cart"
+                            hx-swap="beforeend"
+                            type="submit"
+                            name="product"
+                            value="{{item.name}}"
+                        >
                             Add to Cart
                         </button>
                         <p style="text-wrap:wrap; align-self: flex-end;">
@@ -42,5 +59,4 @@
                 </article>
         {% endfor %}
     </section>
-    <hr>
 </section>
