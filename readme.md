@@ -33,9 +33,9 @@ The app will be set up to initialize with some shoddy mock data
 1. `mongosh` will initialize a connection from the command line
  - while running mongosh, you can use `show dbs` to see a list of all databases
     - if you need to drop your dbs/collections because you're like me and kinda dumb
-    - `use dbName`
-    - drop a specific collection `db.COLLECTION_NAME.drop()`
-    - drop the whole mess `db.dropDatabase()`
+    - `use dbName` for this I have it set as `use htmx_flask`
+    - then drop a specific collection `db.COLLECTION_NAME.drop()`
+    - or drop the whole mess `db.dropDatabase()`
 1. `brew services stop mongodb-community@7.0` will stop your MongoDB when you're done
 
 Going to keep this to a real minimum of deps. Once you got all that python and mongo installed, you can run the app this like:

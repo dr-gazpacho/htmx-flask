@@ -2,7 +2,7 @@ from flask_pymongo import PyMongo
 from typing import TypedDict
 
 class Product(TypedDict):
-    id: int
+    product_id: int
     category: int
     category_class: str
     name: str
@@ -12,7 +12,7 @@ class Product(TypedDict):
     price: int
 
 strange_orb=Product(
-    id=1,
+    product_id=1,
     category=1,
     category_class='trapped-entity',
     name='Strange Orb',
@@ -22,7 +22,7 @@ strange_orb=Product(
 )
 
 beguiling_elixer=Product(
-    id=2,
+    product_id=2,
     category=1,
     category_class='trapped-entity',
     name='Beguiling Elixer',
@@ -32,7 +32,7 @@ beguiling_elixer=Product(
 )
 
 mysterious_vapor=Product(
-    id=3,
+    product_id=3,
     category=2,
     category_class='transient-horror',
     name='Mysterious Vapor',
@@ -42,7 +42,7 @@ mysterious_vapor=Product(
 )
 
 questionable_evidence=Product(
-    id=4,
+    product_id=4,
     category=2,
     category_class='transient-horror',
     name='Questionable Evidence',
@@ -52,7 +52,7 @@ questionable_evidence=Product(
 )
 
 generic_meat=Product(
-    id=5,
+    product_id=5,
     category=3,
     category_class='food',
     name='Generic Meat',
@@ -62,7 +62,7 @@ generic_meat=Product(
 )
 
 forgettable_corn=Product(
-    id=6,
+    product_id=6,
     category=3,
     category_class='food',
     name='Forgettable Corn',
@@ -72,7 +72,7 @@ forgettable_corn=Product(
 )
 
 shrinking_gloves=Product(
-    id=7,
+    product_id=7,
     category=1,
     category_class='trapped-entity',
     name='Shrinking Gloves',
@@ -82,7 +82,7 @@ shrinking_gloves=Product(
 )
 
 heroic_broom=Product(
-    id=8,
+    product_id=8,
     category=1,
     category_class='trapped-entity',
     name='Heroic Broom',
@@ -92,7 +92,7 @@ heroic_broom=Product(
 )
 
 opaque_opening=Product(
-    id=9,
+    product_id=9,
     category=2,
     category_class='transient-horror',
     name='Opaque Opening',
@@ -102,7 +102,7 @@ opaque_opening=Product(
 )
 
 underlying_principle=Product(
-    id=10,
+    product_id=10,
     category=2,
     category_class='transient-horror',
     name='Underlying Principle',
@@ -112,7 +112,7 @@ underlying_principle=Product(
 )
 
 simply_fur=Product(
-    id=11,
+    product_id=11,
     category=3,
     category_class='food',
     name='Simply Fur',
@@ -122,7 +122,7 @@ simply_fur=Product(
 )
 
 flamin_hot=Product(
-    id=12,
+    product_id=12,
     category=3,
     category_class='food',
     name='Flamin\' Hot',

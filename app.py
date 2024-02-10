@@ -31,9 +31,9 @@ def shelf():
 @app.route("/add", methods=["POST"])
 @templated("./partials/cart.html")
 def cart():
-    name=request.form.get("product")
-    item=mongo.db.inventory.find_one({'name': name})
-    return dict(item=item)
+    product=int(request.form.get("product"))
+    new_cart_item=mongo.db.inventory.find_one({'product_id': product})
+    return dict(item=new_cart_item)
 
 @app.route("/thing", methods=["POST"])
 @templated("./partials/thing.html")
