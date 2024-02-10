@@ -6,10 +6,11 @@ class Product(TypedDict):
     category: int
     category_class: str
     name: str
-    quantity_available: int
     color: list[str]
     description: str
     price: int
+    card_id: int
+    quantity_in_cart: int
 
 strange_orb=Product(
     product_id=1,
@@ -18,7 +19,9 @@ strange_orb=Product(
     name='Strange Orb',
     color=['midnightblue', 'royalblue'],
     description='A strange orb that seems to contain the screams of countless souls',
-    price=15
+    price=15,
+    cart_id=0,
+    quantity_in_cart=0
 )
 
 beguiling_elixer=Product(
@@ -28,7 +31,9 @@ beguiling_elixer=Product(
     name='Beguiling Elixer',
     color=['midnightblue', 'royalblue'],
     description='It tastes really bad, otherwise it\'s positively potable',
-    price=195
+    price=195,
+    cart_id=0,
+    quantity_in_cart=0
 )
 
 mysterious_vapor=Product(
@@ -38,7 +43,9 @@ mysterious_vapor=Product(
     name='Mysterious Vapor',
     color=['red', 'coral', 'midnightblue'],
     description='A mysterious vapor that seems to contain portals into worlds beyond',
-    price=23
+    price=23,
+    cart_id=0,
+    quantity_in_cart=0
 )
 
 questionable_evidence=Product(
@@ -48,7 +55,9 @@ questionable_evidence=Product(
     name='Questionable Evidence',
     color=['darkorchid', 'springgreen'],
     description='Certainly it could mean what we think it means, but does it? Origin, unknown',
-    price=10
+    price=10,
+    cart_id=0,
+    quantity_in_cart=0
 )
 
 generic_meat=Product(
@@ -58,7 +67,9 @@ generic_meat=Product(
     name='Generic Meat',
     color=['springgreen'],
     description='Meat from a meat producing entity',
-    price=1
+    price=1,
+    cart_id=0,
+    quantity_in_cart=0
 )
 
 forgettable_corn=Product(
@@ -68,7 +79,9 @@ forgettable_corn=Product(
     name='Forgettable Corn',
     color=['gold', 'darkorchid', 'midnightblue'],
     description='Corn, not unlike every single ear of corn you have ever seen; unremarkable',
-    price=2
+    price=2,
+    cart_id=0,
+    quantity_in_cart=0
 )
 
 shrinking_gloves=Product(
@@ -78,7 +91,9 @@ shrinking_gloves=Product(
     name='Shrinking Gloves',
     color=['coral', 'midnightblue', 'springgreen'],
     description='They\'re gonna scrunch right down and squish your little fingies',
-    price=144
+    price=144,
+    cart_id=0,
+    quantity_in_cart=0
 )
 
 heroic_broom=Product(
@@ -88,7 +103,9 @@ heroic_broom=Product(
     name='Heroic Broom',
     color=['springgreen', 'royalblue'],
     description='Dust trembles in fear.',
-    price=2275
+    price=2275,
+    cart_id=0,
+    quantity_in_cart=0
 )
 
 opaque_opening=Product(
@@ -98,7 +115,9 @@ opaque_opening=Product(
     name='Opaque Opening',
     color=['springgreen'],
     description='What lies beyond? You see nothing but smell everything',
-    price=765
+    price=765,
+    cart_id=0,
+    quantity_in_cart=0
 )
 
 underlying_principle=Product(
@@ -108,7 +127,9 @@ underlying_principle=Product(
     name='Underlying Principle',
     color=['coral'],
     description='The unquestionable heart-o-it-all',
-    price=3599
+    price=3599,
+    cart_id=0,
+    quantity_in_cart=0
 )
 
 simply_fur=Product(
@@ -118,7 +139,9 @@ simply_fur=Product(
     name='Simply Fur',
     color=['red', 'gold'],
     description='Freshly juiced fur, some pulp',
-    price=13
+    price=13,
+    cart_id=0,
+    quantity_in_cart=0
 )
 
 flamin_hot=Product(
@@ -128,7 +151,9 @@ flamin_hot=Product(
     name='Flamin\' Hot',
     color=['red', 'coral', 'gold', 'darkorchid', 'midnightblue', 'springgreen', 'royalblue'],
     description='Multi-purpose Flamin\' Hot with standard issue applicator tabs and swabs',
-    price=849
+    price=849,
+    cart_id=0,
+    quantity_in_cart=0
 )
 
 initial_values=[
