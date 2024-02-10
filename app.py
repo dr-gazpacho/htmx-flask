@@ -32,8 +32,24 @@ def shelf():
 @templated("./partials/cart.html")
 def cart():
     product=int(request.form.get("product"))
-    new_cart_item=mongo.db.inventory.find_one({'product_id': product})
-    return dict(item=new_cart_item)
+    new_addition_to_cart=mongo.db.cart.find_one({'product_id': product})
+    print(new_addition_to_cart)
+    if new_addition_to_cart is None:
+        item_from_inventory=mongo.db.inventory.find_one({'product_id': product})
+        item_from_inventory["quantity_in_cart"]=item_from_inventory.get("quantity_in_cart", 0)+1
+        mongo.db.cart.insert_one(item_from_inventory)
+        cart=mongo.db.cart.find({})
+        return dict(cart=cart)
+    else:
+        item_from_cart=mongo.db.cart.find_one({'product_id': product})
+        quantity=int(item_from_cart.get("quantity_in_cart"))+1
+
+        mongo.db.cart.update_one(
+            {'product_id': product},
+            {"$set": {"quantity_in_cart": quantity}}
+        )
+        cart=mongo.db.cart.find({})
+        return dict(cart=cart)
 
 @app.route("/thing", methods=["POST"])
 @templated("./partials/thing.html")
