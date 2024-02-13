@@ -1,5 +1,6 @@
 from flask_pymongo import PyMongo
 from typing import TypedDict
+from random import randint
 
 class Product(TypedDict):
     product_id: int
@@ -29,7 +30,7 @@ beguiling_elixer=Product(
     category=1,
     category_class='trapped-entity',
     name='Beguiling Elixer',
-    color=['midnightblue', 'royalblue'],
+    color=['midnightblue'],
     description='It tastes really bad, otherwise it\'s positively potable',
     price=195,
     cart_id=0,
@@ -187,25 +188,18 @@ def manage_db(mongo: PyMongo):
     except:
         # semantic exception message, very helpful
         raise Exception('Some way, somehow, something is all jacked up with the connection to your database')
-        
-# Here temporarily until I figure out how to initialize this database
 
-# use them on the shelf and update on restock
-# class Item(Document):
-#     name = StringField(required=True)
-#     id = IntField()
-#     quantityRemaining = IntField()
-#     colors = ListField()
-#     description = StringField()
-#     price = IntField()
-
-# # when things enter the cart they get expanded with how many of them there are in the cart and who it belongs to
-# class CartItem(me.EmbeddedDocument):
-#     shopper = me.StringField()
-#     item = me.EmbeddedDocumentField(Item)
-#     quantityInCary = me.IntField()
-
-# # maybe persist the idea of the cart as its own document in db
-# class Cart(me.Document):
-#     user=someone
-#     cartItem = me.EmbeddedDocumentListField(CartItem)
+def manufacture_product(name: str, descripion: str, price: int, mongo: PyMongo):
+    new_id=mongo.db.inventory.count_documents({}) + 1
+    new_product=Product(
+        product_id=new_id,
+        category=4,
+        category_class='the whim of the creator',
+        name=name,
+        color=['gold', 'midnightblue'],
+        description=descripion,
+        price=price,
+        cart_id=0,
+        quantity_in_cart=0
+    )
+    mongo.db.inventory.insert_one(new_product)

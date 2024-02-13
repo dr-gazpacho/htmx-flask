@@ -4,7 +4,7 @@
 >
     <section class="shelf-controls">
         <button
-            hx-post="/shelf"
+            hx-post="/getShelf"
             hx-swap="outerHtml"
             hx-target="#shelf"
             type="submit"
@@ -14,7 +14,7 @@
             Sort by Price
         </button>
         <button
-            hx-post="/shelf"
+            hx-post="/getShelf"
             hx-swap="outerHtml"
             hx-target="#shelf"
             type="submit"
@@ -43,7 +43,7 @@
                         {% endfor %}
                         </div>
                         <button
-                            hx-post="/add"
+                            hx-post="/addToCart"
                             hx-target="#cart"
                             hx-swap="outerHtml"
                             type="submit"

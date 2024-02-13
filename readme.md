@@ -56,5 +56,3 @@ Rejoice
 Some to-do things I'd like to try to flesh this out
 - Active search so you can see what other weird shit exists 
 -- https://htmx.org/examples/active-search/
-- A fun color picker built with some wild ass CSS
--- like maybe style a radio panel to look like squares so people can only select one and when you click that "add to cart" you submit input val
