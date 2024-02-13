@@ -5,7 +5,7 @@ Therefore, I'm trying to get better. Standing up a little toy app with HTMX/Flas
 - Python3
 - Pip
 - MongoDB
- - https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
+    - https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
 
 
 ## Eat Your Vegetables
@@ -59,7 +59,7 @@ Power down the server and tear down your virtual environment when you're done
 Some to-do things I'd like to try to flesh this out:
 ### General
 - Why store HTMX in the server? Why not just keep collection in the db that has all the html?
- - Could get unweildy for bigger things, but you don't know til you know
+    - Could get unweildy for bigger things, but you don't know til you know
 
 ### Shelf
 - Active search - write a sort of keyword filter to reduce items on the shelf that match keyword
