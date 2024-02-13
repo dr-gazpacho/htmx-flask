@@ -1,6 +1,5 @@
 <section
     hx-target="#shelf"
-    class="shelf"
 >
     <section class="shelf-controls">
         <button
@@ -30,11 +29,11 @@
     >
         {% for item in shelf %}
                 <article
-                    class="category {{item.category_class}}"
+                    class="category {{item.category_class}} card"
                 >
-                    <p>
+                    <h4 class="item name shelf-card">
                         {{ item.name }}
-                    </p>
+                    </h4>
                     <section style="display: flex; flex-direction: column;">
                         <div class="color-panel">
                         {% for color in item.color %}
@@ -42,20 +41,21 @@
                             </div>
                         {% endfor %}
                         </div>
-                        <button
-                            hx-post="/addToCart"
-                            hx-target="#cart"
-                            hx-swap="outerHtml"
-                            type="submit"
-                            name="product"
-                            value="{{item.product_id}}"
-                        >
-                            Add to Cart
-                        </button>
                         <p style="text-wrap:wrap; align-self: flex-end;">
                             {{ item.description }}
                         </p>
-                    <section>
+                    </section>
+                    <button
+                        hx-post="/addToCart"
+                        hx-target="#cart"
+                        hx-swap="outerHtml"
+                        type="submit"
+                        name="product"
+                        value="{{item.product_id}}"
+                        class="shelf-button"
+                    >
+                        Add to Cart
+                    </button>
                 </article>
         {% endfor %}
     </section>

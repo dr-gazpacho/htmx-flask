@@ -1,10 +1,10 @@
 {% for item in cart %}
     <article
-        class="category {{item.category_class}}"
+        class="category {{item.category_class}} card"
     >
-        <p>
+        <h4 class="item name cart-card">
             {{ item.name }}
-        </p>
+        </h4>
         <section style="display: flex; flex-direction: column;">
             <div class="color-panel">
             {% for color in item.color %}
@@ -14,18 +14,18 @@
             </div>
             <p style="text-wrap:wrap; align-self: flex-end;">
                 {{ item.description }}
-                {{ item.quantity_in_cart }}
             </p>
-            <button
+        </section>
+        <button
                 hx-delete="/removeFromCart"
                 hx-target="#cart"
                 hx-swap="outerHtml"
                 type="submit"
                 name="product"
                 value="{{item.product_id}}"
+                class="cart-button"
             >
-                Remove From Cart
-            </button>
-        <section>
+                Remove {{ item.quantity_in_cart }} From Cart
+        </button>
     </article>
 {% endfor %}
