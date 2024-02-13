@@ -30,29 +30,29 @@ From the root of the project, spin up a virtual enviroment, activate it, and ins
 Get MongoDB installed on your machine, then you'll open a connection to it before you run the app.
 - https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/ 
 The app will be set up to initialize with some mock data if your local db is empty. You need to have a connection to the db open while you run the app.
-1. `brew services start mongodb-community@7.0`
-11. `brew services list` will show you running services
-11. `mongosh` will initialize a connection from the command line
+- `brew services start mongodb-community@7.0`
+- `brew services list` will show you running services
+-- `mongosh` will initialize a connection from the command line
  - while running mongosh, you can use `show dbs` to see a list of all databases
     - if you need to drop your dbs/collections because you're like me and kinda dumb
     - `use dbName` for this I have it set as `use htmx_flask`
     - then drop a specific collection `db.COLLECTION_NAME.drop()`
     - or drop the whole mess `db.dropDatabase()`
-1. `brew services stop mongodb-community@7.0` will stop your MongoDB when you're done
-1. Rejoice
+- `brew services stop mongodb-community@7.0` will stop your MongoDB when you're done
+- Rejoice
 
 Going to keep this to a real minimum of deps. Once everything is installed, you can run the app this like:
 1. `brew services start mongodb-community@7.0`
 1. `flask run` - the first time you start it, the app will create some initial data for your local db. Or it will throw an exception if you totally screwed up.
 1. On your browswer go to `http://127.0.0.1:5000`
-11. You can run the app on whatever port you want though with `flask run --port=PORT_NUMBER`
+-- You can run the app on whatever port you want though with `flask run --port=PORT_NUMBER`
 1. Rejoice
 
 
 It'll serve the HTML with the local copy of HTMX. And some mock data Live it. Breathe It. Rejoice.
 
 Power down the server and tear down your virtual environment when you're done
-1. `deactivate`
+1. `deactivate` in the same terminal window you started the virtual environment with `python3 -m venv .venv`
 1. Rejoice
 
 ## But wait there's more
