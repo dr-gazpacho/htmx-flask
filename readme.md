@@ -74,7 +74,7 @@ Some to-do things I'd like to try to flesh this out:
 - Form validation - implement a simple validation method onto the form that creates a new item
     - https://htmx.org/docs/#validation-example
 - A full "admin page" (no route protection though that's overkill)
-- something like localhost:port/admin
+    - something like localhost:port/admin to separate out the concerns
 - Edit existing items
     - https://htmx.org/examples/click-to-edit/
 
