@@ -10,9 +10,9 @@
 <body>
     <section id="shelf-container">
         <h2
-            hx-get="/shelf"
+            hx-get="/getShelf"
             hx-trigger="load"
-            hx-post="/shelf"
+            hx-post="/getShelf"
             hx-trigger="click"
             hx-swap="outerHtml"
             hx-target="#shelf"
@@ -31,19 +31,21 @@
     </section>
     <hr>
     <section>
-        <p>This section sends the inputs to the server and the server returns htmx</p>
+        <h2>Add a new item to the database</h2>
         <form 
-            id="new-thing-form"
-            hx-post="/thing"
+            id="new-item-form"
+            hx-post="/addToShelf"
             hx-trigger="submit"
-            hx-target="#results-box"
+            hx-target="#shelf"
+            hx-swap="outerHtml"
             hx-on::after-request="this.reset()"
         >
-            <input type="text" name="thing-name" placeholder="what is this thing?">
-            <input type="text" name="thing-description" placeholder="what is it like?">
+            <input type="text" name="name" placeholder="what is this thing?">
+            <input type="text" name="description" placeholder="what is it like?">
+            <input type="number" name="price" placeholder="what value does it hold?">
         </form>
 
-        <input type="submit" value="new-thing" form="new-thing-form">
+        <input type="submit" value="new-thing" form="new-item-form">
 
         <div id="results-box"></div>
         
