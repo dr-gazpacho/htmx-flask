@@ -1,5 +1,5 @@
 ## I know nothing about the web
-Therefore, I'm trying to get better. Standing up a little toy app with HTMX/Flask because I don't know either of them
+Therefore, I'm trying to get better. Standing up a little toy app with HTMX/Flask because I don't know either of them. Also, trying to write a whole CRUD app with HATEOAS and virtually no additional JS outside of the HTMX script
 
 ## Prerecs
 - Python3
