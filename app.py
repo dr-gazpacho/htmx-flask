@@ -4,7 +4,7 @@ from flask_htmx import HTMX, make_response
 from flask_pymongo import PyMongo
 # this project
 from utils.template_decorator import templated
-from utils.products import create_mock_data
+from utils.products import manage_db
 
 # initialize flask, htmx
 app=Flask(__name__)
@@ -13,7 +13,7 @@ htmx=HTMX(app)
 app.config["MONGO_URI"] = "mongodb://localhost:27017/htmx_flask"
 mongo=PyMongo(app)
 # create a few items in the db if its empty
-create_mock_data(mongo) 
+manage_db(mongo) 
 
 @app.route("/")
 def home():
@@ -30,10 +30,9 @@ def shelf():
 
 @app.route("/add", methods=["POST"])
 @templated("./partials/cart.html")
-def cart():
+def add():
     product=int(request.form.get("product"))
     new_addition_to_cart=mongo.db.cart.find_one({'product_id': product})
-    print(new_addition_to_cart)
     if new_addition_to_cart is None:
         item_from_inventory=mongo.db.inventory.find_one({'product_id': product})
         item_from_inventory["quantity_in_cart"]=item_from_inventory.get("quantity_in_cart", 0)+1
@@ -50,6 +49,16 @@ def cart():
         )
         cart=mongo.db.cart.find({})
         return dict(cart=cart)
+
+@app.route("/remove", methods=["DELETE"])
+@templated("./partials/cart.html")
+def remove():
+    product=int(request.form.get("product"))
+    mongo.db.cart.delete_one(
+            {'product_id': product}
+        )
+    cart=mongo.db.cart.find({})
+    return dict(cart=cart)
 
 @app.route("/thing", methods=["POST"])
 @templated("./partials/thing.html")

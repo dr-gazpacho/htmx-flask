@@ -1,23 +1,31 @@
 {% for item in cart %}
-<article
-    class="category {{item.category_class}}"
->
-    <p>
-        {{ item.name }}
-    </p>
-    <section style="display: flex; flex-direction: column;">
-        <div class="color-panel">
-        {% for color in item.color %}
-            <div class="{{color}} square"> 
-            </div>
-        {% endfor %}
-        </div>
-        <button>
-            Add to Cart
-        </button>
-        <p style="text-wrap:wrap; align-self: flex-end;">
-            {{ item.description }}
+    <article
+        class="category {{item.category_class}}"
+    >
+        <p>
+            {{ item.name }}
         </p>
-    <section>
-</article>
+        <section style="display: flex; flex-direction: column;">
+            <div class="color-panel">
+            {% for color in item.color %}
+                <div class="{{color}} square"> 
+                </div>
+            {% endfor %}
+            </div>
+            <p style="text-wrap:wrap; align-self: flex-end;">
+                {{ item.description }}
+                {{ item.quantity_in_cart }}
+            </p>
+            <button
+                hx-delete="/remove"
+                hx-target="#cart"
+                hx-swap="outerHtml"
+                type="submit"
+                name="product"
+                value="{{item.product_id}}"
+            >
+                Remove From Cart
+            </button>
+        <section>
+    </article>
 {% endfor %}

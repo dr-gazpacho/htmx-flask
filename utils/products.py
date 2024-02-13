@@ -171,7 +171,8 @@ initial_values=[
     flamin_hot
 ]
 
-def create_mock_data(mongo: PyMongo):
+def manage_db(mongo: PyMongo):
+    mongo.db.cart.delete_many({})
     try:
         contents=mongo.db.inventory.count_documents({})
         if not contents:
