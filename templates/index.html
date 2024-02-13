@@ -25,7 +25,7 @@
         <section id="shelf"></section>
         <hr>
         <h2>Cart</h2>
-        <section id="cart" class="category-container">
+        <section id="cart" class="category-container cart">
 
         </section>
     </section>
@@ -34,6 +34,7 @@
         <h2>Add a new item to the database</h2>
         <form 
             id="new-item-form"
+            class="new-item-form"
             hx-post="/addToShelf"
             hx-trigger="submit"
             hx-target="#shelf"
@@ -43,9 +44,8 @@
             <input type="text" name="name" placeholder="what is this thing?">
             <input type="text" name="description" placeholder="what is it like?">
             <input type="number" name="price" placeholder="what value does it hold?">
+            <input type="submit" value="new-thing" form="new-item-form">
         </form>
-
-        <input type="submit" value="new-thing" form="new-item-form">
 
         <div id="results-box"></div>
         

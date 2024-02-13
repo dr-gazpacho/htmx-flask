@@ -53,6 +53,25 @@ Power down the server and tear down your virtual environment when you're done
 Rejoice
 
 ## But wait there's more
-Some to-do things I'd like to try to flesh this out
-- Active search so you can see what other weird shit exists 
+Some to-do things I'd like to try to flesh this out:
+### Shelf
+- Active search - write a sort of keyword filter to reduce items on the shelf that match keyword
 -- https://htmx.org/examples/active-search/
+- Vertical/grid shelf with infinte scroll
+-- https://htmx.org/examples/infinite-scroll/
+- Allow someone to choose what color they want their product in
+- Force the page to load slow (maybe add a delay on that initial get)
+-- Add a loading state/wiget
+
+### Admin
+- Form validation - implement a simple validation method onto the form that creates a new item
+-- https://htmx.org/docs/#validation-example
+- A full "admin page" (no route protection though that's overkill)
+- something like localhost:port/admin
+- Edit existing items
+-- https://htmx.org/examples/click-to-edit/
+
+### Cart
+- Click on a shelf item and expand it into a modal window
+- Put the cart in a modal window
+- Change Quantities in cart without deleting item from cart
